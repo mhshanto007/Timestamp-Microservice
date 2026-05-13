@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.get("/api", (req, res) => {
   const date = new Date()
@@ -23,7 +23,7 @@ app.get("/api/:date", (req, res) => {
     }
 
     if (date.toString() === "Invalid Date"){
-        return res.json({error: "Invalid date",})
+        return res.json({error: "Invalid Date",})
     }
 
     res.json({
